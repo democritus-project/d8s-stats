@@ -1,16 +1,13 @@
 import collections
-import os
 import statistics
-import sys
 from typing import Any
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-import decorators
+from .stats_temp_utils import string_to_decimal_first_arg
 
 StatsOverview = collections.namedtuple('StatsOverview', ['min', 'max', 'mean', 'mode', 'variance', 'stdev'])
 
 
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def statistical_overview(
     data, *, data_is_sample: bool = False, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = True
 ):
@@ -45,7 +42,7 @@ def mode(data, *, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = 
 
 
 # TODO: research the differences between the functions for samples and the functions for whole populations (e.g. variance_of_sample vs variance)
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def variance(data, *, data_mean=None, data_is_sample: bool = False):
     """Return the variance of the data (assuming the data represents an entire population)."""
     if data_is_sample:
@@ -55,7 +52,7 @@ def variance(data, *, data_mean=None, data_is_sample: bool = False):
     return result
 
 
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def stdev(data, *, data_mean=None, data_is_sample: bool = False):
     """Return the standard deviation of the data (assuming the data represents an entire population)."""
     if data_is_sample:
@@ -66,22 +63,22 @@ def stdev(data, *, data_mean=None, data_is_sample: bool = False):
 
 
 # TODO: research the different means and what they mean ;)
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def mean(iterable):
     """Return the average of the list."""
     # TODO: this could also be called "average"
     return statistics.mean(iterable)
 
 
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def harmonic_mean(iterable):
     """Return the harmonic mean of the list."""
     return statistics.harmonic_mean(iterable)
 
 
-@decorators.string_to_decimal_first_arg
+@string_to_decimal_first_arg
 def geometric_mean(iterable):
     """Return the geometric mean of the list."""
-    from maths import product
+    from democritus_math import prod
 
-    return pow(product(iterable), (1 / len(iterable)))
+    return pow(prod(iterable), (1 / len(iterable)))

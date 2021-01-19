@@ -1,0 +1,2 @@
+democritus-strings @ git+https://github.com/democritus-project/democritus-strings.git#egg=democritus-strings
+democritus-math @ git+https://github.com/democritus-project/democritus-math.git#egg=democritus-math
