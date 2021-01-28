@@ -2,16 +2,17 @@ import collections
 import statistics
 from typing import Any
 
-from .stats_temp_utils import string_to_decimal_first_arg
+from democritus_math import prod, string_to_number
 
 StatsOverview = collections.namedtuple('StatsOverview', ['min', 'max', 'mean', 'mode', 'variance', 'stdev'])
 
 
-@string_to_decimal_first_arg
 def statistical_overview(
     data, *, data_is_sample: bool = False, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = True
 ):
     """Return an overview of the data's statistical properties."""
+    data = tuple(map(string_to_number, data))
+
     # calculate the mean once so that it can be passed into some of the functions later to expedite their execution
     data_mean = mean(data)
 
@@ -42,9 +43,10 @@ def mode(data, *, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = 
 
 
 # TODO: research the differences between the functions for samples and the functions for whole populations (e.g. variance_of_sample vs variance)
-@string_to_decimal_first_arg
 def variance(data, *, data_mean=None, data_is_sample: bool = False):
     """Return the variance of the data (assuming the data represents an entire population)."""
+    data = tuple(map(string_to_number, data))
+
     if data_is_sample:
         result = statistics.variance(data, xbar=data_mean)
     else:
@@ -52,9 +54,10 @@ def variance(data, *, data_mean=None, data_is_sample: bool = False):
     return result
 
 
-@string_to_decimal_first_arg
 def stdev(data, *, data_mean=None, data_is_sample: bool = False):
     """Return the standard deviation of the data (assuming the data represents an entire population)."""
+    data = tuple(map(string_to_number, data))
+
     if data_is_sample:
         result = statistics.stdev(data, xbar=data_mean)
     else:
@@ -63,22 +66,23 @@ def stdev(data, *, data_mean=None, data_is_sample: bool = False):
 
 
 # TODO: research the different means and what they mean ;)
-@string_to_decimal_first_arg
 def mean(iterable):
     """Return the average of the list."""
+    iterable = map(string_to_number, iterable)
+
     # TODO: this could also be called "average"
     return statistics.mean(iterable)
 
 
-@string_to_decimal_first_arg
 def harmonic_mean(iterable):
     """Return the harmonic mean of the list."""
+    iterable = map(string_to_number, iterable)
+
     return statistics.harmonic_mean(iterable)
 
 
-@string_to_decimal_first_arg
 def geometric_mean(iterable):
     """Return the geometric mean of the list."""
-    from democritus_math import prod
+    iterable = tuple(map(string_to_number, iterable))
 
     return pow(prod(iterable), (1 / len(iterable)))
