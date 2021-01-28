@@ -39,8 +39,11 @@ def test_mean_docs_1():
 def test_mode_docs_1():
     assert mode([1, 2, 2]) == 2
     assert mode(['a', 'a', 0]) == 'a'
-    with pytest.raises(StatisticsError):
-        mode([1, 2])
+
+    # this does different things based on the python version... in <3.8 it will raise a StatisticsError; in >= 3.8 it will return 1
+    # with pytest.raises(StatisticsError):
+    #     mode([1, 2])
+
     assert mode([1, 2], raise_error_if_no_mode=False) == None
     assert mode([1, 2], result_if_no_mode='foo') == 'foo'
 
