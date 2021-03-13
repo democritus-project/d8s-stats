@@ -2,7 +2,7 @@ from statistics import StatisticsError
 
 import pytest
 
-from democritus_stats import (
+from d8s_stats import (
     statistical_overview,
     mode,
     variance,
