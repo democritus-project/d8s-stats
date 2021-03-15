@@ -1,8 +1,8 @@
 # Democritus Stats
 
-[![PyPI](https://img.shields.io/pypi/v/democritus-stats.svg)](https://pypi.python.org/pypi/democritus-stats)
-[![Build Status](https://travis-ci.com/democritus-project/democritus-stats.svg?branch=master)](https://travis-ci.com/democritus-project/democritus-stats)
-[![codecov](https://codecov.io/gh/democritus-project/democritus-stats/branch/master/graph/badge.svg?token=V0WOIXRGMM)](https://codecov.io/gh/democritus-project/democritus-stats)
+[![PyPI](https://img.shields.io/pypi/v/d8s-stats.svg)](https://pypi.python.org/pypi/d8s-stats)
+[![Build Status](https://travis-ci.com/democritus-project/d8s-stats.svg?branch=main)](https://travis-ci.com/democritus-project/d8s-stats)
+[![codecov](https://codecov.io/gh/democritus-project/d8s-stats/branch/main/graph/badge.svg?token=V0WOIXRGMM)](https://codecov.io/gh/democritus-project/d8s-stats)
 
 Democritus functions<sup>[1]</sup> for working with statistics.
 
