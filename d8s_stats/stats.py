@@ -2,7 +2,7 @@ import collections
 import statistics
 from typing import Any
 
-from democritus_math import prod, string_to_number
+from d8s_math import prod, string_to_number
 
 StatsOverview = collections.namedtuple('StatsOverview', ['min', 'max', 'mean', 'mode', 'variance', 'stdev'])
 

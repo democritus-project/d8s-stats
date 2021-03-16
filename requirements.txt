@@ -1,2 +1,2 @@
-democritus-math
+d8s-math
 importlib-metadata; python_version < '3.8'
