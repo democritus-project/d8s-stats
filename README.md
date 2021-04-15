@@ -14,9 +14,38 @@ Democritus functions<sup>[1]</sup> for working with statistics.
 
 We use `d8s` as an abbreviation for `democritus` (you can read more about this [here](https://github.com/democritus-project/roadmap#what-is-d8s)).
 
-## Usage
+## Functions
 
-Coming soon...
+  - ```python
+    def statistical_overview(
+        data, *, data_is_sample: bool = False, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = True
+    ):
+        """Return an overview of the data's statistical properties."""
+    ```
+  - ```python
+    def mode(data, *, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = True):
+        """Return the item in the data which occurs the greatest number of times."""
+    ```
+  - ```python
+    def variance(data, *, data_mean=None, data_is_sample: bool = False):
+        """Return the variance of the data (assuming the data represents an entire population)."""
+    ```
+  - ```python
+    def stdev(data, *, data_mean=None, data_is_sample: bool = False):
+        """Return the standard deviation of the data (assuming the data represents an entire population)."""
+    ```
+  - ```python
+    def mean(iterable):
+        """Return the average of the list."""
+    ```
+  - ```python
+    def harmonic_mean(iterable):
+        """Return the harmonic mean of the list."""
+    ```
+  - ```python
+    def geometric_mean(iterable):
+        """Return the geometric mean of the list."""
+    ```
 
 ## Development
 
