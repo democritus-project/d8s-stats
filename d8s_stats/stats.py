@@ -4,7 +4,7 @@ from typing import Any
 
 from d8s_math import prod, string_to_number
 
-StatsOverview = collections.namedtuple('StatsOverview', ['min', 'max', 'mean', 'mode', 'variance', 'stdev'])
+StatsOverview = collections.namedtuple("StatsOverview", ["min", "max", "mean", "mode", "variance", "stdev"])
 
 
 def statistical_overview(
@@ -35,14 +35,14 @@ def mode(data, *, result_if_no_mode: Any = None, raise_error_if_no_mode: bool = 
     try:
         result = statistics.mode(data)
     except statistics.StatisticsError as e:
-        if not raise_error_if_no_mode or (result_if_no_mode != None):
+        if not raise_error_if_no_mode or (result_if_no_mode is not None):
             result = result_if_no_mode
         else:
             raise e
     return result
 
 
-# TODO: research the differences between the functions for samples and the functions for whole populations (e.g. variance_of_sample vs variance)
+# TODO: research the differences between the functions for samples and the functions for whole populations (e.g. variance_of_sample vs variance)  # noqa: E501
 def variance(data, *, data_mean=None, data_is_sample: bool = False):
     """Return the variance of the data (assuming the data represents an entire population)."""
     data = tuple(map(string_to_number, data))
